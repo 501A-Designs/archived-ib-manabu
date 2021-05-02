@@ -5,6 +5,7 @@
   font-family: "Kumbh Sans", "M PLUS 1p", sans-serif;
 }
 
+
 :root {
   --bigText: 20px;
   --mediumText: 16px;
@@ -18,7 +19,7 @@
   --standardGreen: #59d683;
   --lightGreen: #9af683;
   --darkGreen: #43a764;
-
+  
   --standardMargin: 5px;
   --edgeMargin: 5%;
   --mobileedgeMargin: 2.5%;
@@ -29,10 +30,15 @@
   --standardPadding: 10px;
   --basicBoxshadow: 3px 3px 10px grey;
   --lightBoxshadow: 3px 3px 10px rgb(161, 161, 161);
-
+  
   // For Image Shadow Blur Effect
   --transitionSpeed:0.5s;
   --lightBlur:blur(15px);
+  
+  --lineHeight:20px;
+}
+p{
+  line-height: var(--lineHeight);
 }
 
 @mixin edgeMargin {
@@ -44,12 +50,14 @@
   border-radius: var(--standardBorderradius);
   padding: var(--standardPadding);
   margin-bottom: calc(var(--standardMargin) * 3);
+  line-height: var(--lineHeight);
 }
 
 h1 {
   text-align: center;
 }
 h2 {
+  padding-top: calc(var(--standardPadding)*2);
   a {
     text-decoration: none;
     color: black;
@@ -126,7 +134,8 @@ h2 {
 }
 
 .grid,
-.sitesGrid {
+.sitesGrid,
+.resourceGrid{
   display: grid;
   gap: calc(var(--standardMargin) * 3);
 
@@ -258,23 +267,26 @@ h2 {
     width: 45%;
   }
 
-  ul {
-    li {
-      text-align: right;
-      list-style-type: none;
-      button {
-        font-size: var(--mediumText);
-        font-weight: bold;
-        text-decoration: none;
-        color: black;
-        background: none;
-        border: none;
-        padding: var(--standardPadding);
-        transition: 0.2s;
-        border-radius: var(--standardBorderradius);
+  #desktopNav{
+    ul {
+      li {
+        text-align: right;
+        list-style-type: none;
+        button {
+          font-size: var(--mediumText);
+          font-weight: bold;
+          text-decoration: none;
+          color: black;
+          background: none;
+          border: none;
+          padding: var(--standardPadding);
+          transition: 0.2s;
+          border-radius: var(--standardBorderradius);
+        }
       }
     }
   }
+
 
   .noDesktop,
   #menuButton,
@@ -282,7 +294,7 @@ h2 {
     display: none;
   }
 
-  section ul {
+  #desktopNav ul {
     &:hover button {
       opacity: 30%;
     }
@@ -315,6 +327,10 @@ h2 {
   .acronymGrid {
     grid-template-columns: 1fr 5fr;
   }
+  .resourceGrid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
   .stretcherGrid {
     grid-column-start: 1;
     grid-column-end: 3;
@@ -373,8 +389,28 @@ h2 {
   }
 }
 
+.resourceGrid{
+  @include basicFormat();
+  background-color: var(--lightGrey);
+  section{
+    justify-self: center;
+
+    img{
+      margin: calc(var(--standardMargin)*3);
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10%;
+    }
+    h3{
+      text-align: center;
+    }
+  }
+}
+
 .mokuji {
   @include basicFormat();
+  padding-top: calc(var(--standardPadding)*2);
   box-shadow: var(--lightBoxshadow);
   a {
     @include basicFormat();
@@ -486,7 +522,7 @@ h2 {
 
 // CRAAP TEST
 .meaningTitle {
-  padding: var(--standardPadding);
+  padding: calc(var(--standardPadding)*2) var(--standardPadding) var(--standardPadding) var(--standardPadding);
   margin: var(--standardMargin);
   border-radius: var(--standardBorderradius);
   text-align: left;
