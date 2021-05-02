@@ -1,0 +1,193 @@
+@import url(style.css);
+@media only screen and (max-width: 767px) {
+  #menuButton, #closeMenuButton {
+    display: block;
+    float: right;
+    border-radius: 100%;
+    border: none;
+    color: white;
+    background-color: var(--blue);
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    margin: var(--standardMargin);
+  }
+  #menuButton:focus, #closeMenuButton:focus {
+    outline: none;
+  }
+  #closeMenuButton {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    -webkit-animation: closeAni var(--transitionSpeed);
+            animation: closeAni var(--transitionSpeed);
+  }
+  @-webkit-keyframes closeAni {
+    0% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    50% {
+      -webkit-transform: rotate(90deg);
+              transform: rotate(90deg);
+    }
+  }
+  @keyframes closeAni {
+    0% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    50% {
+      -webkit-transform: rotate(90deg);
+              transform: rotate(90deg);
+    }
+  }
+  #menuContainer {
+    display: none;
+    background-color: var(--standardGrey);
+    clear: both;
+    margin: var(--standardMargin);
+    border-radius: var(--standardBorderradius);
+    -webkit-animation: menuExpand 1s;
+            animation: menuExpand 1s;
+    padding-top: var(--standardPadding);
+    padding-bottom: var(--standardPadding);
+  }
+  #menuContainer li {
+    text-align: center;
+    list-style-type: none;
+  }
+  #menuContainer li button {
+    font-size: var(--mediumText);
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    background: none;
+    margin: var(--standardMargin);
+    border: none;
+    padding: var(--standardPadding);
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    border-radius: var(--standardBorderradius);
+    -webkit-animation: menuExpand 0.5s;
+            animation: menuExpand 0.5s;
+    outline: none;
+  }
+  @-webkit-keyframes menuExpand {
+    0% {
+      opacity: 0;
+      height: 50%;
+      -webkit-transform: translateX(100px);
+              transform: translateX(100px);
+      -webkit-filter: blur(5px);
+              filter: blur(5px);
+    }
+    50% {
+      -webkit-transform: translateX(-20px);
+              transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      height: auto;
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+    }
+  }
+  @keyframes menuExpand {
+    0% {
+      opacity: 0;
+      height: 50%;
+      -webkit-transform: translateX(100px);
+              transform: translateX(100px);
+      -webkit-filter: blur(5px);
+              filter: blur(5px);
+    }
+    50% {
+      -webkit-transform: translateX(-20px);
+              transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      height: auto;
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+    }
+  }
+  h1 {
+    padding-top: var(--standardPadding);
+    clear: both;
+  }
+  .edgeMargin {
+    margin-right: var(--mobileedgeMargin);
+    margin-left: var(--mobileedgeMargin);
+  }
+  .flex-cards {
+    overflow-x: scroll;
+    padding: 20px;
+    height: 300px;
+  }
+  .flex-cards div {
+    margin-right: 20px;
+    min-width: 250px;
+    overflow: hidden;
+  }
+  /*CONTENT CONTAINER*/
+  .contentContainer div {
+    margin-right: var(--mobileedgeMargin);
+    margin-left: var(--mobileedgeMargin);
+  }
+  .grid,
+  .sitesGrid {
+    margin-right: var(--mobileedgeMargin);
+    margin-left: var(--mobileedgeMargin);
+  }
+  section ul,
+  .noMobile {
+    display: none;
+  }
+  .sitesGrid {
+    display: -ms-grid;
+    display: grid;
+    gap: calc(var(--standardMargin) * 2);
+  }
+  .duoGrid,
+  .triGrid {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .acronymGrid {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .stretcherGrid,
+  .contributorGrid {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 1;
+  }
+  .mokuji {
+    width: 90%;
+    min-width: 200px;
+  }
+  .mokuji a {
+    background-color: var(--lightGrey);
+  }
+  .profileImg {
+    margin: auto;
+    border-radius: 50px;
+  }
+  /*
+  .buttonAnimation {
+    animation: buttonAni 1s;
+  }
+  @keyframes buttonAni {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(45deg);
+    }
+  }
+  */
+}
+/*# sourceMappingURL=mobile.css.map */
